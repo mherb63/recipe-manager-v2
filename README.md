@@ -3,7 +3,9 @@
 ![Image 1](src/main/resources/static/images/screen-shot.png)
 
 
-##### This is a simple Spring Boot project which was built to demonstrate Spring Boot, Spring Data Mongo, @RestController, and Project Lombok.
+##### This is a simple Spring Boot project which was built to demonstrate Spring Boot, Spring Data Mongo, @RestController, and Project Lombok.  
+Go to http://localhost:8080/ to see the UI
+Go to http://localhost:8080/swagger-ui.html to see Swagger UI
 
 #####  Prerequsites
 1.  Mongo Database.  Installation instructions can be found [here](https://docs.mongodb.com/manual/installation/#mongodb-community-edition)

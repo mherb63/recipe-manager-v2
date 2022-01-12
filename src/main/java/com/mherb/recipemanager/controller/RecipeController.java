@@ -30,6 +30,18 @@ public class RecipeController {
         return recipeService.findById(id);
     }
 
+    @GetMapping("/findByContributor")
+    @ResponseStatus(HttpStatus.OK)
+    public Recipe findByContributor(@RequestParam String contributor) {
+        return recipeService.findByContributorName(contributor);
+    }
+
+    @GetMapping("/findByTitle")
+    @ResponseStatus(HttpStatus.OK)
+    public Recipe findByTitle(@RequestParam String title) {
+        return recipeService.findByTitle(title);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Recipe createRecipe(@RequestBody Recipe recipe) {
