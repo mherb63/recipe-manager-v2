@@ -31,8 +31,8 @@ public class RecipeService {
     public Recipe createRecipe(Recipe recipe) {
         log.info("Received request to create a new Recipe: {}", recipe);
 
-        return recipeRepository.save(Recipe.builder().
-                contributorName(recipe.getContributorName())
+        return recipeRepository.save(Recipe.builder()
+                .contributorName(recipe.getContributorName())
                 .title(recipe.getTitle())
                 .instructions(recipe.getInstructions())
                 .notes(recipe.getNotes())
