@@ -4,7 +4,6 @@ import com.mherb.recipemanager.domain.Recipe;
 import com.mherb.recipemanager.exception.RecipeNotFoundException;
 import com.mherb.recipemanager.repository.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +30,14 @@ public class RecipeService {
 
     public Recipe createRecipe(Recipe recipe) {
         log.info("Received request to create a new Recipe: {}", recipe);
-        return recipeRepository.save(recipe);
+
+        return recipeRepository.save(Recipe.builder().
+                contributorName(recipe.getContributorName())
+                .title(recipe.getTitle())
+                .instructions(recipe.getInstructions())
+                .notes(recipe.getNotes())
+                .build()
+        );
     }
 
     public Recipe replaceRecipe(Recipe recipe) {
