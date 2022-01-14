@@ -59,15 +59,15 @@ public class RecipeService {
         recipeRepository.deleteById(id);
     }
 
-    public Recipe findByTitle(String title) {
+    public List<Recipe> findByTitle(String title) {
         log.info("Received request to find Recipe with title: {}", title);
 
-        return recipeRepository.findByTitle(title).orElseThrow(() -> new RecipeNotFoundException("Could not find Recipe with title: " + title));
+        return recipeRepository.findByTitle(title);
     }
 
-    public Recipe findByContributorName(String contributorName) {
+    public List<Recipe> findByContributorName(String contributorName) {
         log.info("Received request to find Recipe with contributerName: {}", contributorName);
 
-        return recipeRepository.findByContributorName(contributorName).orElseThrow(() -> new RecipeNotFoundException("Could not find Recipe with contributor name: " + contributorName));
+        return recipeRepository.findByContributorName(contributorName);
     }
 }

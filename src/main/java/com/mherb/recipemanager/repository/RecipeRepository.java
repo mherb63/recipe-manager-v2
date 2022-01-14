@@ -3,9 +3,9 @@ package com.mherb.recipemanager.repository;
 import com.mherb.recipemanager.domain.Recipe;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface RecipeRepository extends MongoRepository<Recipe, String> {
-    Optional<Recipe> findByContributorName(String contributorName);
-    Optional<Recipe> findByTitle(String title);
+    List<Recipe> findByContributorName(String contributorName);
+    List<Recipe> findByTitle(String title);
 }

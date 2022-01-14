@@ -32,13 +32,13 @@ public class RecipeController {
 
     @GetMapping("/findByContributor")
     @ResponseStatus(HttpStatus.OK)
-    public Recipe findByContributor(@RequestParam String contributor) {
+    public List<Recipe> findByContributor(@RequestParam String contributor) {
         return recipeService.findByContributorName(contributor);
     }
 
     @GetMapping("/findByTitle")
     @ResponseStatus(HttpStatus.OK)
-    public Recipe findByTitle(@RequestParam String title) {
+    public List<Recipe> findByTitle(@RequestParam String title) {
         return recipeService.findByTitle(title);
     }
 
