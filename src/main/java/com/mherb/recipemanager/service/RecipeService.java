@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -55,8 +56,13 @@ public class RecipeService {
     public void deleteRecipe(String id) {
         log.info("Received request to delete Recipe with id: {}", id);
 
-        Recipe r = recipeRepository.findById(id).orElseThrow(() -> new RecipeNotFoundException("Could not find Recipe with id: " + id));
-        recipeRepository.deleteById(id);
+        Optional<Recipe> r = recipeRepository.findById(id);
+        if (r.isPresent()) {
+            recipeRepository.deleteById(id);
+        }
+        else {
+            log.error("Could not delete Recipe with id: {} because its not there!", id);
+        }
     }
 
     public List<Recipe> findByTitle(String title) {
