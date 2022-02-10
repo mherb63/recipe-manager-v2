@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/recipes")
-
 public class RecipeController {
 
     private final RecipeService recipeService;
